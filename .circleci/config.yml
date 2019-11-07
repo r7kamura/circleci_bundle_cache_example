@@ -1,0 +1,23 @@
+jobs:
+  bundle_install:
+    machine: true
+    steps:
+      - checkout
+      - run:
+          command: docker-compose pull
+          name: docker-compose pull
+      - restore_cache:
+          keys:
+            - v1-bundle-{{ checksum "Gemfile.lock" }}
+      - run:
+          command: docker-compose run --rm base bundle install --clean --jobs=4 --path=vendor/bundle
+          name: bundle install
+      - save_cache:
+          key: v1-bundle-{{ checksum "Gemfile.lock" }}
+          paths:
+            - vendor/bundle
+version: 2.1
+workflows:
+  test:
+    jobs:
+      - bundle_install
