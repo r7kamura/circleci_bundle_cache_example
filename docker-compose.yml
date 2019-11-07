@@ -4,4 +4,4 @@ services:
     build: .
     image: r7kamura/ruby-dev-2
     volumes:
-      - .:/app:cached
+      - .:/app
