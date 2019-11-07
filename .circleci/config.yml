@@ -8,12 +8,12 @@ jobs:
           name: docker-compose pull
       - restore_cache:
           keys:
-            - v3-bundle-{{ checksum "Gemfile.lock" }}
+            - v5-bundle-{{ checksum "Gemfile.lock" }}
       - run:
           command: docker-compose run --rm base bundle install --clean --jobs=4 --path=vendor/bundle
           name: bundle install
       - save_cache:
-          key: v3-bundle-{{ checksum "Gemfile.lock" }}
+          key: v5-bundle-{{ checksum "Gemfile.lock" }}
           paths:
             - vendor/bundle
 version: 2.1
