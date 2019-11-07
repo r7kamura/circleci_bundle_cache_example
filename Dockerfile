@@ -1,4 +1,4 @@
-FROM ruby:2.6.5
+FROM ruby:2.6.3-stretch
 
 ENV LANG C.UTF-8
 
