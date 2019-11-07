@@ -1,3 +1,11 @@
 source 'https://rubygems.org'
 
+gem 'net-sftp'
+gem 'newrelic_rpm'
 gem 'nokogiri'
+gem 'oauth2'
+gem 'omniauth'
+gem 'omniauth-auth0'
+gem 'paranoia'
+gem 'phonelib'
+gem 'pundit'
